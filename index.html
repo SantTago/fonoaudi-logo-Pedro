@@ -1,13 +1,488 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fonoaudiólogo Pedro</title>
+    <title>Dr. Pedro Henrique - Fonoaudiólogo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: white;
+            color: #012EA4;
+        }
+       
+    </style>
 </head>
-
 <body>
-    
-</body>
+    <!----------------------------menu-------------------------------------->
+    <style>
+         nav {
+            background-color: #012EA4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 4px solid #FFD409;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+        .logo >img {
+            width: 122px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            transition: all 0.3s ease-in-out;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        nav ul li a:hover {
+            color: #FFD409;
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+        }
 
+
+
+      
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #012EA4;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                opacity: 0;
+                transform: translateY(-20px);
+                transition: all 0.3s ease-in-out;
+            }
+            nav ul.active {
+                display: flex;
+                opacity: 1;
+                transform: translateY(0);
+                align-items: center;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+
+         
+      
+        }
+    </style>
+    <nav>
+        <div class="logo"> <img src="img/logo.png" alt="Logo"></div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#especialidades">Especialidades</a></li>
+            <li><a href="#agendamento">Agendamento</a></li>
+            <li><a href="#local">Local</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            menu.classList.toggle('active');
+        }
+    </script>
+     <!----------------------------Home-------------------------------------->
+
+     <style>
+          .carousel-container {
+        width: 100%; /* Agora ocupa 100% da tela */
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background-color: white;
+    }
+
+    .carousel {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+        min-width: 100%; /* Garante que apenas um slide será exibido por vez */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        background: linear-gradient(135deg, #6db3f2, #1e69d2);
+        color: white;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .slide:nth-child(2) {
+        background: linear-gradient(135deg, #f2a365, #d2451e);
+    }
+
+    .slide:nth-child(3) {
+        background: linear-gradient(135deg, #95e664, #37a045);
+    }
+
+    .message {
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="slide">
+        <div class="message">
+          <h1>Bem-vindo!</h1>
+          <p>Ao nosso espaço de conscientização sobre Fonoaudiologia.</p>
+        </div>
+      
+     
+</div>
+      <div class="slide">
+        
+        
+<div class="message">
+          <h1>Dificuldades de Fala</h1>
+          <p>Identifique sinais como trocas de sons, gagueira ou atraso no desenvolvimento.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="message">
+          <h1>Transtornos de Linguagem</h1>
+          <p>Aprenda mais sobre como lidar com dificuldades na comunicação.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const carousel = document.querySelector('.carousel');
+    let currentIndex = 0;
+
+    function nextSlide() {
+        const totalSlides = document.querySelectorAll('.slide').length;
+        currentIndex = (currentIndex + 1) % totalSlides;
+        const offset = currentIndex * -100;
+        carousel.style.transform = `translateX(${offset}%)`;
+    }
+
+    // Alterne slides a cada 5 segundos
+    setInterval(nextSlide, 5000);
+  </script>
+    <!----------------------------Sobre-------------------------------------->
+
+  <style>
+    .sobre {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        margin: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+    }
+    .sobre img {
+        max-width: 300px;
+        height: auto;
+        margin-right: 20px;
+    }
+    .sobre div {
+        flex: 1;
+    }
+    @media (max-width: 768px) {
+        .sobre {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .sobre img {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .artigo > p{
+            text-align: justify;
+        }
+    }
+    
+</style>
+
+<section id="sobre" class="sobre">
+    <img src="img/sobre.jpg" alt="Imagem do Dr. Pedro Henrique">
+    <div class="artigo">
+        <h2>Sobre o Dr. Pedro Henrique</h2>
+        <p> Sou o Dr. Pedro Henrique, fonoaudiólogo (CRFa 8-12903) e terapeuta especializado na Análise do Comportamento Aplicada (ABA). Minha missão é ajudar crianças, jovens e adultos a alcançarem o pleno desenvolvimento da comunicação, melhorando a qualidade de vida e promovendo a interação social.
+            <br> <br>
+            Com anos de experiência, dedico-me a oferecer atendimentos personalizados, utilizando metodologias baseadas em evidências científicas para obter os melhores resultados. Acredito que cada indivíduo é único, e o acompanhamento deve respeitar as necessidades e o ritmo de cada pessoa. </p>
+    </div>
+</section>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('nav ul');
+        menu.classList.toggle('active');
+    }
+</script>
+
+
+
+    <!------------------------------Carrosel------------------------------------>
+
+    <style>
+        .Serviços{
+            text-align: center;
+            margin: 20px;
+        }
+
+        .item_posts img {
+            height: 250px;
+            width: 250px;
+          border-radius: 50px;
+        }
+       
+        @media (max-width: 768px) {
+            .item_posts img {
+                height: 218px;
+                width: 200px;
+                border-radius: 50px;
+              
+        }
+      
+    }
+    </style>
+
+        <h1 id="especialidades" class="Serviços">Especialidades</h1>
+		<div class="elementor-element elementor-element-8075cbf elementor-widget elementor-widget-shortcode" data-id="8075cbf" data-element_type="widget" data-widget_type="shortcode.default">
+            <div class="elementor-widget-container">
+                <div class="elementor-shortcode">
+                    <!-- Owl Carousel Styles -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+        
+                    <!-- Carrossel -->
+                    <div id="owl_consultas" class="owl-carousel owl-theme consultas">
+
+
+                        <!-- Item 1 -->
+                        <div class="item_posts" >
+                            <img src="img/1.jpg" alt="1">
+                            <a href="#"> </a>
+                        </div>
+
+                         <!-- Item 2 -->
+                         <div class="item_posts" >
+                            <img src="img/2.jpg" alt="2">
+                            <a href="#"> </a>
+                        </div>
+
+                         <!-- Item 3 -->
+                         <div class="item_posts" >
+                            <img src="img/3.jpg" alt="3">
+                            <a href="#"> </a>
+                        </div>
+
+                         <!-- Item 4 -->
+                         <div class="item_posts" >
+                            <img src="img/4.jpg" alt="4">
+                            <a href="#"> </a>
+                        </div>
+
+                         <!-- Item 5 -->
+                         <div class="item_posts" >
+                            <img src="img/5.jpg" alt="5">
+                            <a href="#"> </a>
+                        </div>
+
+                         <!-- Item 6 -->
+                         <div class="item_posts" >
+                            <img src="img/6.jpg" alt="6">
+                            <a href="#"> </a>
+                        </div>
+
+                         <!-- Item 7 -->
+                         <div class="item_posts" >
+                            <img src="img/7.jpg" alt="7">
+                            <a href="#"> </a>
+                        </div>
+
+                      
+                    </div>
+        
+                    <!-- Navigation Buttons -->
+                    <div class="slider_nav">
+                        <div id="prev-video" class="am-prev"><i class="eicon-chevron-left" aria-hidden="true"></i></div>
+                        <div id="next-video" class="am-next"><i class="eicon-chevron-right" aria-hidden="true"></i></div>
+                    </div>
+        
+                    <!-- Scripts -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+                    <script>
+                        $(document).ready(function () {
+                            $('.consultas').owlCarousel({
+                                stagePadding: 130,
+                                loop: true,
+                                margin: 15,
+                                nav: true,
+                                navText: ['<i class="eicon-chevron-left"></i>', '<i class="eicon-chevron-right"></i>'],
+                                responsive: {
+                                    0: {
+                                        items: 1,
+                                        stagePadding: 80,
+                                    },
+                                    600: {
+                                        items: 2,
+                                    },
+                                    1000: {
+                                        items: 4,
+                                    }
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+
+    <!------------------------------agendamento------------------------------------>
+        <style>
+            .agendamento {
+            text-align: center;
+            padding: 20px;
+        }
+        .agendamento h2 {
+            margin-bottom: 20px;
+        }
+        .clinicas {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .clinica {
+            width: 100px;
+            height: 100px;
+            background-color: #012EA4;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .clinica:hover {
+            background-color: #FFD409;
+            color: #012EA4;
+        }
+        .info {
+            display: none;
+            position: absolute;
+            top: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            color: #012EA4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            z-index: 10;
+            text-align: left;
+        }
+        .clinica:hover .info {
+            display: block;
+        }
+        </style>
+
+    <section id="agendamento" class="agendamento">
+        <h2>Agendamento</h2>
+        <div class="clinicas">
+            <div class="clinica">
+                Clínica 1
+                <div class="info">
+                    <p><strong>Nome:</strong> Clínica Saúde</p>
+                    <p><strong>Endereço:</strong> Rua A, 123</p>
+                    <p><strong>Telefone:</strong> (11) 1234-5678</p>
+                </div>
+            </div>
+            <div class="clinica">
+                Clínica 2
+                <div class="info">
+                    <p><strong>Nome:</strong> Centro Médico B</p>
+                    <p><strong>Endereço:</strong> Avenida B, 456</p>
+                    <p><strong>Telefone:</strong> (11) 2345-6789</p>
+                </div>
+            </div>
+            <div class="clinica">
+                Clínica 3
+                <div class="info">
+                    <p><strong>Nome:</strong> Consultório C</p>
+                    <p><strong>Endereço:</strong> Rua C, 789</p>
+                    <p><strong>Telefone:</strong> (11) 3456-7890</p>
+                </div>
+            </div>
+            <div class="clinica">
+                Clínica 4
+                <div class="info">
+                    <p><strong>Nome:</strong> Clínica D</p>
+                    <p><strong>Endereço:</strong> Rua D, 101</p>
+                    <p><strong>Telefone:</strong> (11) 4567-8901</p>
+                </div>
+            </div>
+            <div class="clinica">
+                Clínica 5
+                <div class="info">
+                    <p><strong>Nome:</strong> Centro Médico E</p>
+                    <p><strong>Endereço:</strong> Avenida E, 202</p>
+                    <p><strong>Telefone:</strong> (11) 5678-9012</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!----------------------------------------------------->
+
+        
+</body>
 </html>
