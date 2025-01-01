@@ -484,14 +484,14 @@
             text-align: center;
             margin: 20px;
         }
-    
+
         .item_posts img {
             height: 250px;
             width: 250px;
             border-radius: 50px;
             cursor: pointer;
         }
-    
+
         @media (max-width: 768px) {
             .item_posts img {
                 height: 218px;
@@ -499,8 +499,8 @@
                 border-radius: 50px;
             }
         }
-    
-        /* Modal styles */
+
+       /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -509,44 +509,43 @@
             transform: translate(-50%, -50%);
             width: 80%;
             max-width: 600px;
+            max-height: 80vh;
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            overflow: hidden; /* Adicionando overflow: hidden para evitar janelas extras */
+            padding: 0; /* Garantir que o padding seja zero */
         }
-    
+
+        /* Modal Header */
         .modal-header {
             background-color: #012EA4;
             color: white;
             padding: 10px;
             font-size: 18px;
             font-weight: bold;
+            text-align: center;
         }
-    
+
+        /* Modal Body */
         .modal-body {
             padding: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+            max-height: calc(80vh - 80px); /* Ajusta para a altura da tela */
+            overflow-y: auto; /* Rolagem quando necessário */
+            margin: 0; /* Garantir que não há margens extras */
         }
-    
+
+        /* Modal Footer */
         .modal-footer {
             text-align: right;
             padding: 10px;
             background-color: #f4f4f4;
         }
-    
-        .modal-footer button {
-            background-color: #012EA4;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    
-        .modal-footer button:hover {
-            background-color: #FFD409;
-            color: #012EA4;
-        }
-    
+
+        /* Overlay */
         .overlay {
             display: none;
             position: fixed;
@@ -556,6 +555,7 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 999;
+            margin: 0; /* Remover margens extras */
         }
     </style>
     
@@ -570,39 +570,40 @@
                 <!-- Carrossel -->
                 <div id="owl_consultas" class="owl-carousel owl-theme consultas">
     
+                  
                     <!-- Item 1 -->
-                    <div class="item_posts" onclick="openModal('Especialidade 1', 'Descrição detalhada sobre a especialidade 1.')">
-                        <img src="img/1.jpg" alt="1">
+                    <div class="item_posts" onclick="openModal('🎉 Brincar transforma vidas! 🧸💬', 'Você sabia que o brincar é uma das ferramentas mais poderosas para estimular a fala e a interação social das crianças? 🤔 Durante as brincadeiras, os pequenos aprendem a se expressar, interagir com o mundo à sua volta e desenvolver habilidades essenciais para a comunicação e o convívio social. 🗣️✨ 🌟 Por que o brincar é tão importante? 🔹 Promove a criatividade e a imaginação; 🔹 Estimula a linguagem e a construção de frases; 🔹 Ensina a compartilhar, esperar a vez e resolver conflitos; 🔹 Fortalece vínculos emocionais com a família e amigos. 🌈 Transforme momentos simples do dia a dia em uma verdadeira aula de aprendizado e diversão! E lembre-se: cada brincadeira é uma oportunidade para ajudar no desenvolvimento do seu pequeno. 💛')">
+                        <img src="dicas/1.jpg" alt="1">
                     </div>
-    
+                      
                     <!-- Item 2 -->
                     <div class="item_posts" onclick="openModal('Especialidade 2', 'Descrição detalhada sobre a especialidade 2.')">
-                        <img src="img/2.jpg" alt="2">
+                        <img src="dicas/2.jpg" alt="2">
                     </div>
     
                     <!-- Item 3 -->
                     <div class="item_posts" onclick="openModal('Especialidade 3', 'Descrição detalhada sobre a especialidade 3.')">
-                        <img src="img/3.jpg" alt="3">
+                        <img src="dicas/3.jpg" alt="3">
                     </div>
     
                     <!-- Item 4 -->
                     <div class="item_posts" onclick="openModal('Especialidade 4', 'Descrição detalhada sobre a especialidade 4.')">
-                        <img src="img/4.jpg" alt="4">
+                        <img src="dicas/4.jpg" alt="4">
                     </div>
     
                     <!-- Item 5 -->
                     <div class="item_posts" onclick="openModal('Especialidade 5', 'Descrição detalhada sobre a especialidade 5.')">
-                        <img src="img/5.jpg" alt="5">
+                        <img src="dicas/5.jpg" alt="5">
                     </div>
     
                     <!-- Item 6 -->
                     <div class="item_posts" onclick="openModal('Especialidade 6', 'Descrição detalhada sobre a especialidade 6.')">
-                        <img src="img/6.jpg" alt="6">
+                        <img src="dicas/6.jpg" alt="6">
                     </div>
     
                     <!-- Item 7 -->
                     <div class="item_posts" onclick="openModal('Especialidade 7', 'Descrição detalhada sobre a especialidade 7.')">
-                        <img src="img/7.jpg" alt="7">
+                        <img src="dicas/7.jpg" alt="7">
                     </div>
     
                 </div>
@@ -614,6 +615,7 @@
                 </div>
     
                 <!-- Scripts -->
+           
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
                 <script>
@@ -638,14 +640,20 @@
                             }
                         });
                     });
-    
+
                     function openModal(title, description) {
-                        document.getElementById('modalTitle').innerText = title;
-                        document.getElementById('modalDescription').innerText = description;
-                        document.getElementById('modal').style.display = 'block';
-                        document.getElementById('modalOverlay').style.display = 'block';
-                    }
-    
+                    // Se o conteúdo incluir um iframe, você pode remover qualquer tag 'iframe' ou verificar por algum erro
+                    document.getElementById('modalTitle').innerText = title;
+                    document.getElementById('modalDescription').innerText = description;
+                    
+                    // Remove qualquer iframe
+                    const iframes = document.querySelectorAll('iframe');
+                    iframes.forEach(iframe => iframe.remove());
+
+                    document.getElementById('modal').style.display = 'block';
+                    document.getElementById('modalOverlay').style.display = 'block';
+                }
+
                     function closeModal() {
                         document.getElementById('modal').style.display = 'none';
                         document.getElementById('modalOverlay').style.display = 'none';
@@ -656,18 +664,7 @@
         </div>
     </div>
     
-    <!-- Modal -->
-    <div class="overlay" id="modalOverlay"></div>
-    <div class="modal" id="modal">
-        <div class="modal-header" id="modalTitle">Especialidade</div>
-        <div class="modal-body">
-            <p id="modalDescription">Descrição sobre a especialidade.</p>
-        </div>
-        <div class="modal-footer">
-            <button onclick="closeModal()">Fechar</button>
-        </div>
-    </div>
-
+   
 
      <!------------------- Conteúdo Principal ----------------------->
 
@@ -991,10 +988,10 @@
             <img src="img/002.jpg" alt="Momento 2">
         </div>
         <div class="momentos-item" onclick="openImage('img/004 (1).jpg')">
-            <img src="img/004 (1).jpg" alt="Momento 3">
+            <img src="img/003.jpg" alt="Momento 3">
         </div>
         <div class="momentos-item" onclick="openImage('img/004 (1).jpg')">
-            <img src="img/004 (2).jpg" alt="Momento 4">
+            <img src="img/004.jpg" alt="Momento 4">
         </div>
     </div>
 </section>
