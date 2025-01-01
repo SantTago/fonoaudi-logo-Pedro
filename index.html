@@ -484,23 +484,35 @@
             text-align: center;
             margin: 20px;
         }
-
+    
         .item_posts img {
             height: 250px;
             width: 250px;
             border-radius: 50px;
             cursor: pointer;
         }
-
+    
         @media (max-width: 768px) {
             .item_posts img {
                 height: 218px;
                 width: 200px;
                 border-radius: 50px;
             }
+    
+            /* Ajustando a posição do botão de fechar no celular */
+            .close-btn {
+                font-size: 25px;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: transparent;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+            }
         }
-
-       /* Modal styles */
+    
+        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -514,10 +526,10 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
-            overflow: hidden; /* Adicionando overflow: hidden para evitar janelas extras */
-            padding: 0; /* Garantir que o padding seja zero */
+            overflow: hidden;
+            padding: 0;
         }
-
+    
         /* Modal Header */
         .modal-header {
             background-color: #012EA4;
@@ -527,24 +539,25 @@
             font-weight: bold;
             text-align: center;
         }
-
+    
         /* Modal Body */
         .modal-body {
             padding: 20px;
             font-size: 16px;
             line-height: 1.5;
-            max-height: calc(80vh - 80px); /* Ajusta para a altura da tela */
-            overflow-y: auto; /* Rolagem quando necessário */
-            margin: 0; /* Garantir que não há margens extras */
+            max-height: calc(80vh - 198px);
+            overflow-y: auto;
+            margin: 0;
+            text-align: justify;
         }
-
+    
         /* Modal Footer */
         .modal-footer {
             text-align: right;
             padding: 10px;
             background-color: #f4f4f4;
         }
-
+    
         /* Overlay */
         .overlay {
             display: none;
@@ -555,7 +568,18 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 999;
-            margin: 0; /* Remover margens extras */
+        }
+    
+        /* Estilo do botão de fechar */
+        .close-btn {
+            font-size: 30px;
+            color: #012EA4;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
         }
     </style>
     
@@ -577,32 +601,37 @@
                     </div>
                       
                     <!-- Item 2 -->
-                    <div class="item_posts" onclick="openModal('Especialidade 2', 'Descrição detalhada sobre a especialidade 2.')">
+                    <div class="item_posts" onclick="openModal('🗣️Fonoaudiologia é para todos! 🌟', 'Você sabia que a fonoaudiologia não tem idade certa para começar? 👶👦👩👴 Seja uma criança em pleno desenvolvimento, um adulto buscando melhorar a comunicação ou um idoso enfrentando desafios na fala, a fonoaudiologia está aqui para ajudar em todas as fases da vida . 🧠💬 🔹Por que nunca é tarde? ✔️ A fala e a comunicação podem ser trabalhadas em qualquer idade; gagueira, dicção ou problemas de deglutição; ✔️É uma oportunidade de conquistar mais qualidade de vida e autoconfiança 💡 O momento certo para cuidar de você ou de quem você ama é agora!')">
                         <img src="dicas/2.jpg" alt="2">
                     </div>
     
                     <!-- Item 3 -->
-                    <div class="item_posts" onclick="openModal('Especialidade 3', 'Descrição detalhada sobre a especialidade 3.')">
+                    <div class="item_posts" onclick="openModal('Erros Comuns ao Tentar Estimular o Contato Visual em Crianças', 'Estimular o contato visual é importante, mas você sabia que algumas abordagens podem ser contraproducentes? 👀❌ Aqui estão 3 erros comuns que você deve evitar: 🚫 Forçar o contato visual: insistir ou segurar o rosto da criança pode gerar desconforto e até resistência. 🚫 Criar pressão excessiva: pedir contato visual constantemente pode fazer a criança sentir ansiosa ou desconectada 🚫 Ignorar a importância do contexto: exigir contato visual durante momentos de estresse ou cansaço não é eficaz. 👁️ A melhor abordagem é sempre respeitar o ritmo da criança, usar estratégias lúdicas e criar um ambiente acolhedor Assim, o contato visual será uma consequência natural da interação 💡❤️.')">
                         <img src="dicas/3.jpg" alt="3">
                     </div>
     
                     <!-- Item 4 -->
-                    <div class="item_posts" onclick="openModal('Especialidade 4', 'Descrição detalhada sobre a especialidade 4.')">
+                    <div class="item_posts" onclick="openModal('Dicas para Estimular a Interação Social em Crianças Pequenas', 'Você sabia que a interação social é essencial para o desenvolvimento da comunicação nas crianças? 👶🗣️ Aqui vão algumas dicas práticas para incentivar essa habilidade desde cedo: ✔️ Brincadeiras em grupo: estimula atividades que envolvem troca, como jogos de tabuleiro ou roda de música . ✔️ Modelagem de comportamentos: demonstre como iniciar conversas ou pedir brinquedos de forma gentil ✔️ Incentive o contato visual: use brincadeiras simples, como esconderijo, para fortalecer essa conexão. playgrounds, encontros e festas são ótimas oportunidades. Com pequenos passos no dia a dia, você pode fazer uma grande diferença no desenvolvimento social do seu pequeno 💬💞')">
                         <img src="dicas/4.jpg" alt="4">
                     </div>
     
                     <!-- Item 5 -->
-                    <div class="item_posts" onclick="openModal('Especialidade 5', 'Descrição detalhada sobre a especialidade 5.')">
+                    <div class="item_posts" onclick="openModal('🎯 Técnicas para Corrigir Trocas Fonéticas', '🔤 A troca de fonemas na fala pode ocorrer por diversos motivos, como dislalia, variações linguísticas ou até questões emocionais. Essa condição pode impactar a comunicação e, em alguns casos, a autoestima. 💡 Como concorda? ✅ Treino articulatório: Prática específica para melhorar os movimentos dos músculos envolvidos na fala. ✅ Exercícios de percepção auditiva: Ajuda a identificar e diferenciar os sons. ✅ Estimulação fonêmica: Técnicas que reforçam o uso correto de cada som.')">
                         <img src="dicas/5.jpg" alt="5">
                     </div>
     
                     <!-- Item 6 -->
-                    <div class="item_posts" onclick="openModal('Especialidade 6', 'Descrição detalhada sobre a especialidade 6.')">
+                    <div class="item_posts" onclick="openModal('Jogos e Brincadeiras que Promovem Interação Social e Comunicação', 'Brincar é uma das melhores formas de estimular a interação social e a comunicação em crianças! 🧩🗣️ Aqui estão 5 jogos e brincadeiras que você pode incluir na rotina: 🎲 Jogo da Memória: além de trabalhar a atenção, a criança aprende a esperar a sua vez e a se comunicar durante o jogo. 🪁 Brincadeira de Roda: músicas como “Ciranda, Cirandinha” estimulam a linguagem, o contato visual e a cooperação em grupo. 🎭 Teatro de Fantoches: estimula a criatividade, a expressão verbal e a construção de diálogos 🏃‍♂️ Esconde-Esconde: promove o contato visual, o vínculo social e a antecipação na comunicação (Achei você!). a escuta, a atenção e a articulação das palavras de forma divertida. Brincar é aprender!')">
                         <img src="dicas/6.jpg" alt="6">
                     </div>
     
                     <!-- Item 7 -->
-                    <div class="item_posts" onclick="openModal('Especialidade 7', 'Descrição detalhada sobre a especialidade 7.')">
+                    <div class="item_posts" onclick="openModal('Dicas para Evitar Rouquidão e Perda de Voz!', 'A voz é uma ferramenta poderosa, e cuidar dela é essencial! Veja como preservar sua saúde vocal: 🔊 Evite gritar ou falar por longos períodos sem pausa. 💧 Beba muita água para manter as cordas vocais hidratadas. 🚭 Diga não ao cigarro e fuja de ambientes poluídos. 🌬️ Fale com lições e evite esforços necessários ao se comunicar. 😴 Durma bem para recuperar a energia vocal. seja um sinal de algo mais sério. Consulte um fonoaudiólogo para um diagnóstico e orientações personalizadas!')">
+                        <img src="dicas/7.jpg" alt="7">
+                    </div>
+
+                     <!-- Item 7 -->
+                     <div class="item_posts" onclick="openModal('Estresse Vocal: Cuidado com a sua voz! ', 'O estresse vocal é uma disfonia funcional, ou seja, uma alteração na voz que ocorre devido a fatores emocionais, como o estresse e a ansiedade. 😔💬 🔊 Quando o corpo está sobrecarregado de tensão, a voz pode ficar rouca, fragilizada ou até dolorida . Isso pode impactar não apenas a comunicação, mas também a qualidade de vida 👩‍⚕️ Se você sente que seu corpo e sua voz estão sendo afetados por emoções, é hora de procurar! a ajuda de um fonoaudiólogo. O cuidado com a saúde vocal é essencial para manter uma voz saudável e livre de danos 💪')">
                         <img src="dicas/7.jpg" alt="7">
                     </div>
     
@@ -719,13 +748,8 @@
     /* Importando fonte profissional */
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-    body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
+   
+    modal-body
     .agendamento {
         text-align: center;
         padding: 40px 20px;
@@ -737,6 +761,8 @@
         font-size: 2rem;
         color: #012EA4;
         font-weight: 600;
+        text-align: center;
+        
     }
 
     .clinicas {
@@ -784,7 +810,7 @@
         transform: translate(-50%, -50%);
         width: 90%;
         max-width: 600px;
-        background-color: white;
+        background-color: rgb(255, 255, 255);
         border-radius: 10px;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         z-index: 1000;
@@ -804,7 +830,7 @@
         padding: 20px;
         font-size: 1rem;
         line-height: 1.6;
-        color: #444;
+        color: #000000;
     }
 
     .modal-body iframe {
@@ -812,6 +838,7 @@
         height: 300px;
         border: none;
         margin-top: 10px;
+        display: none;
     }
 
     .modal-footer {
@@ -871,8 +898,7 @@
 <div class="modal" id="modal">
     <div class="modal-header" id="modalTitle">Clínica</div>
     <div class="modal-body">
-        <p><strong>Endereço:</strong> <span id="modalAddress"></span></p>
-        <p><strong>Telefone:</strong> <span id="modalPhone"></span></p>
+        <p><strong></strong> <span id="modalAddress"></span></p>
         <iframe id="modalMap" src="" allowfullscreen></iframe>
     </div>
     <div class="modal-footer">
@@ -884,7 +910,6 @@
     function openModal(name, address, phone, mapLink) {
         document.getElementById('modalTitle').innerText = name;
         document.getElementById('modalAddress').innerText = address;
-        document.getElementById('modalPhone').innerText = phone;
         document.getElementById('modalMap').src = mapLink + '&output=embed';
         document.getElementById('modal').style.display = 'block';
         document.getElementById('modalOverlay').style.display = 'block';
@@ -1015,7 +1040,7 @@
         overlay.style.display = 'none';
     }
 </script>
-<!------------------------------------------------------>
+
 
 
 <!------------------------------Footer-------------------------------------->
@@ -1093,8 +1118,8 @@
     <div class="footer-container">
         <!-- About Us Section -->
         <div class="footer-column">
-            <h3>Sobre Nós</h3>
-            <p>Somos especializados em oferecer serviços de excelência, focados no cuidado e bem-estar dos nossos clientes.</p>
+            <h3>Como profissional</h3>
+            <p>Como fonoaudiólogo, meu foco é cuidar da sua saúde vocal e comunicação, promovendo bem-estar e autoconfiança em cada interação. </p>
         </div>
         <!-- Links Section -->
         <div class="footer-column">
@@ -1112,31 +1137,24 @@
             <h3>Contato</h3>
             <ul>
                 <li>Email: contato@exemplo.com</li>
-                <li>Telefone: (11) 1234-5678</li>
-                <li>Endereço: Rua Exemplo, 123</li>
+                <li>Telefone: (21) 96923-5634</li>
+
             </ul>
         </div>
         <!-- Social Media Section -->
         <div class="footer-column">
             <h3>Redes Sociais</h3>
             <div class="footer-social">
-                <a href="https://facebook.com" target="_blank" title="Facebook">
-                    <i class="fa fa-facebook-f"></i>
-                </a>
+                
                 <a href="https://instagram.com" target="_blank" title="Instagram">
                     <i class="fa fa-instagram"></i>
                 </a>
-                <a href="https://twitter.com" target="_blank" title="Twitter">
-                    <i class="fa fa-twitter"></i>
-                </a>
-                <a href="https://linkedin.com" target="_blank" title="LinkedIn">
-                    <i class="fa fa-linkedin"></i>
-                </a>
+                
             </div>
         </div>
     </div>
     <div class="footer-bottom">
-        © 2024 - Todos os direitos reservados. Desenvolvido com ❤️.
+        © 2025 - Todos os direitos reservados por <a style="text-decoration: none; color: white;" href="https://registracamocim.shop/">Registra Camocim</a>
     </div>
 </footer>
 <!------------------------------------------------------>
